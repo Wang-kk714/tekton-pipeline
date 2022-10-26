@@ -1,0 +1,88 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: helm-chart-publish
+spec:
+  workspaces:
+  - name: source
+  volumes:
+  - name: packages
+    emptyDir: {}
+  params:
+  - name: helm-image
+    type: string
+    default: "docker.io/lachlanevenson/k8s-helm" 
+  - name: git-image
+    type: string
+    default: "docker.io/alpine/git:latest"
+  - name: helm-page
+    type: string
+    default: ""
+  - name: helm-repo
+    type: string
+    default: ""
+  - name: user-home
+    type: string
+    default: "/tekton/home"
+  - name: chart-dir
+    type: string
+    default: "/chart"
+  - name: git-email
+    type: string
+    default: ""
+  steps:
+  - name: package
+    image: $(params.helm-image)
+    env: 
+    - name: HELM_PAGE
+      value: $(params.helm-page)
+    - name: WORKSPACE_SOURCE_PATH
+      value: $(workspaces.source.path)
+    script: | 
+      #!/usr/bin/env sh
+      set -x #verbose
+
+      cd /packages
+      helm package "${WORKSPACE_SOURCE_PATH}"/helm | tee package-output
+      helm repo index . --url ${HELM_PAGE}
+      if [ -f index.yaml ]; then
+        echo "generate new chart package&index"
+        cat index.yaml 
+      fi
+    volumeMounts: 
+    - mountPath: /packages
+      name: packages
+  - name: push
+    image: $(params.git-image)
+    env:
+    - name: HELM_REPO
+      value: $(params.helm-repo)
+    - name: PARAM_USER_HOME
+      value: $(params.user-home)
+    - name: CHART_DIR
+      value: $(params.chart-dir)
+    - name: GIT_EMAIL
+      value: $(params.git-email)
+    script: |
+      #!/usr/bin/env sh
+      set -x #verbose
+
+      CHECKOUT_DIR="/packages/${CHART_DIR}"
+      git clone "${HELM_REPO}" "${CHECKOUT_DIR}"
+      git config --global user.email "${GIT_EMAIL}"
+      cd "${CHECKOUT_DIR}"
+      git checkout gh-pages
+      init_file=$(ls | grep min-flask)
+      package_file=$(cat ../package-output | awk -F": /packages/" '{print $2}')
+      if [ "${init_file}" = "${package_file}" ]; then
+          echo "no update on helm chart"
+      else
+          rm -f index.yaml ${init_file}
+          cp ../index.yaml ../${package_file} .
+          git add .
+          git commit . -F ../package-output
+          git push origin refs/heads/gh-pages:gh-pages
+      fi
+    volumeMounts: 
+    - mountPath: /packages
+      name: packages

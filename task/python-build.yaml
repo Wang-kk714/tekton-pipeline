@@ -1,0 +1,27 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: python-build
+spec:
+  workspaces:
+  - name: source
+  params:
+  - name: python-version
+    type: string
+    default: "3.10.7-slim-buster"
+  steps:
+  - name: build-test
+    image: docker.io/python:$(params.python-version)
+    workingDir: $(workspaces.source.path)
+    script: | 
+      #!/usr/bin/env sh
+      set -x #verbose
+
+      python -m venv venv
+      source ./venv/bin/active
+      pip install --upgrade pip
+      pip install pytest-cov coverage 
+      pip install -r requirements.txt
+      if [ -d 'tests' ]; then
+        python -m pytest --cov-report xml --cov=. --junitxml=test_result.xml ./tests
+      fi

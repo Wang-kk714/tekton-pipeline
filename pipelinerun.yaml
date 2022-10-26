@@ -1,0 +1,34 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: ci-pipeline-run-
+spec:
+  serviceAccountName: ci-pipeline-account
+  pipelineRef:
+    name: ci-pipeline
+  podTemplate:
+    securityContext:
+      fsGroup: 65532
+  workspaces:
+  - name: source-shared
+    volumeClaimTemplate:
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1Gi
+  - name: docker-credentials
+    secret:
+      secretName: docker-credentials
+  params:
+  - name: repo-url
+    value: git@github.com:Wang-kk714/min-flask.git
+  - name: image-reference
+    value: w98714/min-flask:v1.0
+  - name: helm-page-url
+    value: https://wang-kk714.github.io/min-flask-charts/
+  - name: helm-repo-url
+    value: git@github.com:Wang-kk714/min-flask-charts.git
+  - name: git-email-str
+    value: wangkk714@gmail.com

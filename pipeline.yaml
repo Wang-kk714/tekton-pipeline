@@ -1,0 +1,64 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: ci-pipeline
+spec:
+  params:
+  - name: repo-url
+    type: string
+  - name: image-reference
+    type: string
+  - name: helm-page-url
+    type: string
+  - name: helm-repo-url
+    type: string
+  - name: git-email-str
+    type: string
+  workspaces:
+  - name: source-shared
+    description: for source repo 
+  - name: docker-credentials
+    description: for image registry authentication
+  tasks:
+  - name: fetch-source
+    taskRef:
+      name: git-clone
+    workspaces:
+    - name: output
+      workspace: source-shared
+    params:
+    - name: url
+      value: $(params.repo-url)
+  - name: python-build
+    runAfter: ["fetch-source"]
+    taskRef:
+      name: python-build
+    workspaces:
+    - name: source
+      workspace: source-shared
+  - name: image-build-push
+    runAfter: ["python-build"]
+    taskRef:
+      name: kaniko
+    workspaces:
+    - name: source
+      workspace: source-shared
+    - name: dockerconfig
+      workspace: docker-credentials
+    params:
+    - name: IMAGE
+      value: $(params.image-reference)
+  - name: helm-chart-publish
+    runAfter: ["image-build-push"]
+    taskRef:
+      name: helm-chart-publish
+    workspaces:
+    - name: source
+      workspace: source-shared
+    params:
+    - name: helm-page
+      value: $(params.helm-page-url)
+    - name: helm-repo
+      value: $(params.helm-repo-url)
+    - name: git-email
+      value: $(params.git-email-str)
