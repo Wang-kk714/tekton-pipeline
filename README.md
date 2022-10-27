@@ -42,5 +42,12 @@ tkn pipelinerun logs -f
 
 ## TODO
 
-1. use Eventlistener and Trigger to retrieve Github webhooks
-
+https://github.com/tektoncd/pipeline/pull/5536
+PodSecurityPolicy remove in Kubernetes v1.25.0, so wait for tekton new release..
+```
+kubectl apply --filename \
+https://storage.googleapis.com/tekton-releases/triggers/latest/release.yaml
+---output---
+error: resource mapping not found for name: "tekton-triggers" namespace: "" from "https://storage.googleapis.com/tekton-releases/triggers/latest/release.yaml": no matches for kind "PodSecurityPolicy" in version "policy/v1beta1"
+```
+If works, use Eventlistener and Trigger to retrieve Github webhooks
