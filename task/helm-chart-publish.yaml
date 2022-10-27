@@ -21,9 +21,6 @@ spec:
   - name: helm-repo
     type: string
     default: ""
-  - name: user-home
-    type: string
-    default: "/tekton/home"
   - name: chart-dir
     type: string
     default: "/chart"
@@ -57,8 +54,6 @@ spec:
     env:
     - name: HELM_REPO
       value: $(params.helm-repo)
-    - name: PARAM_USER_HOME
-      value: $(params.user-home)
     - name: CHART_DIR
       value: $(params.chart-dir)
     - name: GIT_EMAIL
