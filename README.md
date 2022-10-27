@@ -39,3 +39,8 @@ kubectl create -f pipelinerun.yaml
 ```
 tkn pipelinerun logs -f
 ```
+
+## TODO
+
+1. use Eventlistener and Trigger to retrieve Github webhooks
+
