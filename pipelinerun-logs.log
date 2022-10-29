@@ -1,0 +1,324 @@
+[fetch-source : clone] + '[' false '=' true ]
+[fetch-source : clone] + '[' false '=' true ]
+[fetch-source : clone] + '[' false '=' true ]
+[fetch-source : clone] + CHECKOUT_DIR=/workspace/output/
+[fetch-source : clone] + '[' true '=' true ]
+[fetch-source : clone] + cleandir
+[fetch-source : clone] + '[' -d /workspace/output/ ]
+[fetch-source : clone] + rm -rf '/workspace/output//*'
+[fetch-source : clone] + rm -rf '/workspace/output//.[!.]*'
+[fetch-source : clone] + rm -rf '/workspace/output//..?*'
+[fetch-source : clone] + test -z 
+[fetch-source : clone] + test -z 
+[fetch-source : clone] + test -z 
+[fetch-source : clone] + /ko-app/git-init '-url=git@github.com:Wang-kk714/min-flask.git' '-revision=' '-refspec=' '-path=/workspace/output/' '-sslVerify=true' '-submodules=true' '-depth=1' '-sparseCheckoutDirectories='
+[fetch-source : clone] {"level":"info","ts":1666802613.1958857,"caller":"git/git.go:170","msg":"Successfully cloned git@github.com:Wang-kk714/min-flask.git @ afcd1c6e4d71099d1e1890600ee16d7332e4ed9b (grafted, HEAD) in path /workspace/output/"}
+[fetch-source : clone] {"level":"info","ts":1666802613.2095957,"caller":"git/git.go:208","msg":"Successfully initialized and updated submodules in path /workspace/output/"}
+[fetch-source : clone] + cd /workspace/output/
+[fetch-source : clone] + git rev-parse HEAD
+[fetch-source : clone] + RESULT_SHA=afcd1c6e4d71099d1e1890600ee16d7332e4ed9b
+[fetch-source : clone] + EXIT_CODE=0
+[fetch-source : clone] + '[' 0 '!=' 0 ]
+[fetch-source : clone] + printf '%s' afcd1c6e4d71099d1e1890600ee16d7332e4ed9b
+[fetch-source : clone] + printf '%s' git@github.com:Wang-kk714/min-flask.git
+
+[python-build : build-test] + python -m venv venv
+[python-build : build-test] + source ./venv/bin/active
+[python-build : build-test] /tekton/scripts/script-0-zfrvj: 5: /tekton/scripts/script-0-zfrvj: source: not found
+[python-build : build-test] + pip install --upgrade pip
+[python-build : build-test] Requirement already satisfied: pip in /usr/local/lib/python3.10/site-packages (22.2.2)
+[python-build : build-test] Collecting pip
+[python-build : build-test]   Downloading pip-22.3-py3-none-any.whl (2.1 MB)
+[python-build : build-test]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 1.1 MB/s eta 0:00:00
+[python-build : build-test] Installing collected packages: pip
+[python-build : build-test]   Attempting uninstall: pip
+[python-build : build-test]     Found existing installation: pip 22.2.2
+[python-build : build-test]     Uninstalling pip-22.2.2:
+[python-build : build-test]       Successfully uninstalled pip-22.2.2
+[python-build : build-test] Successfully installed pip-22.3
+[python-build : build-test] WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+[python-build : build-test] + pip install pytest-cov coverage
+[python-build : build-test] Collecting pytest-cov
+[python-build : build-test]   Downloading pytest_cov-4.0.0-py3-none-any.whl (21 kB)
+[python-build : build-test] Collecting coverage
+[python-build : build-test]   Downloading coverage-6.5.0-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (214 kB)
+[python-build : build-test]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 214.1/214.1 kB 454.9 kB/s eta 0:00:00
+[python-build : build-test] Collecting pytest>=4.6
+[python-build : build-test]   Downloading pytest-7.2.0-py3-none-any.whl (316 kB)
+[python-build : build-test]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 316.8/316.8 kB 2.0 MB/s eta 0:00:00
+[python-build : build-test] Collecting tomli
+[python-build : build-test]   Downloading tomli-2.0.1-py3-none-any.whl (12 kB)
+[python-build : build-test] Collecting pluggy<2.0,>=0.12
+[python-build : build-test]   Downloading pluggy-1.0.0-py2.py3-none-any.whl (13 kB)
+[python-build : build-test] Collecting exceptiongroup>=1.0.0rc8
+[python-build : build-test]   Downloading exceptiongroup-1.0.0rc9-py3-none-any.whl (12 kB)
+[python-build : build-test] Collecting attrs>=19.2.0
+[python-build : build-test]   Downloading attrs-22.1.0-py2.py3-none-any.whl (58 kB)
+[python-build : build-test]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 58.8/58.8 kB 4.3 MB/s eta 0:00:00
+[python-build : build-test] Collecting iniconfig
+[python-build : build-test]   Downloading iniconfig-1.1.1-py2.py3-none-any.whl (5.0 kB)
+[python-build : build-test] Collecting packaging
+[python-build : build-test]   Downloading packaging-21.3-py3-none-any.whl (40 kB)
+[python-build : build-test]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.8/40.8 kB 6.9 MB/s eta 0:00:00
+[python-build : build-test] Collecting pyparsing!=3.0.5,>=2.0.2
+[python-build : build-test]   Downloading pyparsing-3.0.9-py3-none-any.whl (98 kB)
+[python-build : build-test]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 98.3/98.3 kB 10.4 MB/s eta 0:00:00
+[python-build : build-test] Installing collected packages: iniconfig, tomli, pyparsing, pluggy, exceptiongroup, coverage, attrs, packaging, pytest, pytest-cov
+[python-build : build-test] Successfully installed attrs-22.1.0 coverage-6.5.0 exceptiongroup-1.0.0rc9 iniconfig-1.1.1 packaging-21.3 pluggy-1.0.0 pyparsing-3.0.9 pytest-7.2.0 pytest-cov-4.0.0 tomli-2.0.1
+[python-build : build-test] WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+[python-build : build-test] + pip install -r requirements.txt
+[python-build : build-test] Collecting flask==2.1.0
+[python-build : build-test]   Downloading Flask-2.1.0-py3-none-any.whl (95 kB)
+[python-build : build-test]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 95.2/95.2 kB 535.4 kB/s eta 0:00:00
+[python-build : build-test] Collecting pylint==2.13.9
+[python-build : build-test]   Downloading pylint-2.13.9-py3-none-any.whl (438 kB)
+[python-build : build-test]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 438.5/438.5 kB 2.2 MB/s eta 0:00:00
+[python-build : build-test] Collecting pytest==7.1.2
+[python-build : build-test]   Downloading pytest-7.1.2-py3-none-any.whl (297 kB)
+[python-build : build-test]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 297.0/297.0 kB 5.4 MB/s eta 0:00:00
+[python-build : build-test] Collecting pytest-cov==3.0.0
+[python-build : build-test]   Downloading pytest_cov-3.0.0-py3-none-any.whl (20 kB)
+[python-build : build-test] Collecting Werkzeug>=2.0
+[python-build : build-test]   Downloading Werkzeug-2.2.2-py3-none-any.whl (232 kB)
+[python-build : build-test]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 232.7/232.7 kB 6.9 MB/s eta 0:00:00
+[python-build : build-test] Collecting itsdangerous>=2.0
+[python-build : build-test]   Downloading itsdangerous-2.1.2-py3-none-any.whl (15 kB)
+[python-build : build-test] Collecting Jinja2>=3.0
+[python-build : build-test]   Downloading Jinja2-3.1.2-py3-none-any.whl (133 kB)
+[python-build : build-test]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.1/133.1 kB 3.8 MB/s eta 0:00:00
+[python-build : build-test] Collecting click>=8.0
+[python-build : build-test]   Downloading click-8.1.3-py3-none-any.whl (96 kB)
+[python-build : build-test]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 96.6/96.6 kB 1.3 MB/s eta 0:00:00
+[python-build : build-test] Collecting astroid<=2.12.0-dev0,>=2.11.5
+[python-build : build-test]   Downloading astroid-2.11.7-py3-none-any.whl (251 kB)
+[python-build : build-test]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 251.2/251.2 kB 2.7 MB/s eta 0:00:00
+[python-build : build-test] Collecting mccabe<0.8,>=0.6
+[python-build : build-test]   Downloading mccabe-0.7.0-py2.py3-none-any.whl (7.3 kB)
+[python-build : build-test] Requirement already satisfied: tomli>=1.1.0 in /usr/local/lib/python3.10/site-packages (from pylint==2.13.9->-r requirements.txt (line 2)) (2.0.1)
+[python-build : build-test] Collecting platformdirs>=2.2.0
+[python-build : build-test]   Downloading platformdirs-2.5.2-py3-none-any.whl (14 kB)
+[python-build : build-test] Collecting dill>=0.2
+[python-build : build-test]   Downloading dill-0.3.6-py3-none-any.whl (110 kB)
+[python-build : build-test]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 110.5/110.5 kB 3.5 MB/s eta 0:00:00
+[python-build : build-test] Collecting isort<6,>=4.2.5
+[python-build : build-test]   Downloading isort-5.10.1-py3-none-any.whl (103 kB)
+[python-build : build-test]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 103.4/103.4 kB 4.8 MB/s eta 0:00:00
+[python-build : build-test] Requirement already satisfied: iniconfig in /usr/local/lib/python3.10/site-packages (from pytest==7.1.2->-r requirements.txt (line 3)) (1.1.1)
+[python-build : build-test] Collecting py>=1.8.2
+[python-build : build-test]   Downloading py-1.11.0-py2.py3-none-any.whl (98 kB)
+[python-build : build-test]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 98.7/98.7 kB 8.5 MB/s eta 0:00:00
+[python-build : build-test] Requirement already satisfied: packaging in /usr/local/lib/python3.10/site-packages (from pytest==7.1.2->-r requirements.txt (line 3)) (21.3)
+[python-build : build-test] Requirement already satisfied: attrs>=19.2.0 in /usr/local/lib/python3.10/site-packages (from pytest==7.1.2->-r requirements.txt (line 3)) (22.1.0)
+[python-build : build-test] Requirement already satisfied: pluggy<2.0,>=0.12 in /usr/local/lib/python3.10/site-packages (from pytest==7.1.2->-r requirements.txt (line 3)) (1.0.0)
+[python-build : build-test] Requirement already satisfied: coverage[toml]>=5.2.1 in /usr/local/lib/python3.10/site-packages (from pytest-cov==3.0.0->-r requirements.txt (line 4)) (6.5.0)
+[python-build : build-test] Collecting lazy-object-proxy>=1.4.0
+[python-build : build-test]   Downloading lazy-object-proxy-1.8.0.tar.gz (41 kB)
+[python-build : build-test]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 41.9/41.9 kB 3.2 MB/s eta 0:00:00
+[python-build : build-test]   Installing build dependencies: started
+[python-build : build-test]   Installing build dependencies: finished with status 'done'
+[python-build : build-test]   Getting requirements to build wheel: started
+[python-build : build-test]   Getting requirements to build wheel: finished with status 'done'
+[python-build : build-test]   Preparing metadata (pyproject.toml): started
+[python-build : build-test]   Preparing metadata (pyproject.toml): finished with status 'done'
+[python-build : build-test] Requirement already satisfied: setuptools>=20.0 in /usr/local/lib/python3.10/site-packages (from astroid<=2.12.0-dev0,>=2.11.5->pylint==2.13.9->-r requirements.txt (line 2)) (63.2.0)
+[python-build : build-test] Collecting wrapt<2,>=1.11
+[python-build : build-test]   Downloading wrapt-1.14.1-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (78 kB)
+[python-build : build-test]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.0/78.0 kB 3.9 MB/s eta 0:00:00
+[python-build : build-test] Collecting MarkupSafe>=2.0
+[python-build : build-test]   Downloading MarkupSafe-2.1.1-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (26 kB)
+[python-build : build-test] Requirement already satisfied: pyparsing!=3.0.5,>=2.0.2 in /usr/local/lib/python3.10/site-packages (from packaging->pytest==7.1.2->-r requirements.txt (line 3)) (3.0.9)
+[python-build : build-test] Building wheels for collected packages: lazy-object-proxy
+[python-build : build-test]   Building wheel for lazy-object-proxy (pyproject.toml): started
+[python-build : build-test]   Building wheel for lazy-object-proxy (pyproject.toml): finished with status 'done'
+[python-build : build-test]   Created wheel for lazy-object-proxy: filename=lazy_object_proxy-1.8.0-cp310-cp310-linux_aarch64.whl size=11300 sha256=95b7e58b8027183c7459d36b46a9b3e92c5511b377f8c72a15ac9064428a7567
+[python-build : build-test]   Stored in directory: /root/.cache/pip/wheels/0f/87/53/4a8ff2034f38ce1f3f2d993f3d05dada6fc36fadc7792ad6b1
+[python-build : build-test] Successfully built lazy-object-proxy
+[python-build : build-test] Installing collected packages: wrapt, py, platformdirs, mccabe, MarkupSafe, lazy-object-proxy, itsdangerous, isort, dill, click, Werkzeug, pytest, Jinja2, astroid, pytest-cov, pylint, flask
+[python-build : build-test]   Attempting uninstall: pytest
+[python-build : build-test]     Found existing installation: pytest 7.2.0
+[python-build : build-test]     Uninstalling pytest-7.2.0:
+[python-build : build-test]       Successfully uninstalled pytest-7.2.0
+[python-build : build-test]   Attempting uninstall: pytest-cov
+[python-build : build-test]     Found existing installation: pytest-cov 4.0.0
+[python-build : build-test]     Uninstalling pytest-cov-4.0.0:
+[python-build : build-test]       Successfully uninstalled pytest-cov-4.0.0
+[python-build : build-test] Successfully installed Jinja2-3.1.2 MarkupSafe-2.1.1 Werkzeug-2.2.2 astroid-2.11.7 click-8.1.3 dill-0.3.6 flask-2.1.0 isort-5.10.1 itsdangerous-2.1.2 lazy-object-proxy-1.8.0 mccabe-0.7.0 platformdirs-2.5.2 py-1.11.0 pylint-2.13.9 pytest-7.1.2 pytest-cov-3.0.0 wrapt-1.14.1
+[python-build : build-test] WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+[python-build : build-test] + [ -d tests ]
+[python-build : build-test] + python -m pytest --cov-report xml --cov=. --junitxml=test_result.xml ./tests
+[python-build : build-test] ============================= test session starts ==============================
+[python-build : build-test] platform linux -- Python 3.10.7, pytest-7.1.2, pluggy-1.0.0
+[python-build : build-test] rootdir: /workspace/source
+[python-build : build-test] plugins: cov-3.0.0
+[python-build : build-test] collected 1 item
+[python-build : build-test] 
+[python-build : build-test] tests/test_example.py .                                                  [100%]
+[python-build : build-test] 
+[python-build : build-test] ------------ generated xml file: /workspace/source/test_result.xml -------------
+[python-build : build-test] 
+[python-build : build-test] ---------- coverage: platform linux, python 3.10.7-final-0 -----------
+[python-build : build-test] Coverage XML written to file coverage.xml
+[python-build : build-test] 
+[python-build : build-test] ============================== 1 passed in 0.02s ===============================
+
+[image-build-push : build-and-push] [36mINFO[0m[0004] Retrieving image manifest python:3.10.7-slim-buster 
+[image-build-push : build-and-push] [36mINFO[0m[0004] Retrieving image python:3.10.7-slim-buster from registry index.docker.io 
+[image-build-push : build-and-push] [36mINFO[0m[0020] Built cross stage deps: map[]                
+[image-build-push : build-and-push] [36mINFO[0m[0020] Retrieving image manifest python:3.10.7-slim-buster 
+[image-build-push : build-and-push] [36mINFO[0m[0020] Returning cached image manifest              
+[image-build-push : build-and-push] [36mINFO[0m[0020] Executing 0 build triggers                   
+[image-build-push : build-and-push] [36mINFO[0m[0020] Unpacking rootfs as cmd COPY requirements.txt requirements.txt requires it. 
+[image-build-push : build-and-push] [36mINFO[0m[0331] ENV FLASK_RUN_HOST=0.0.0.0     FLASK_RUN_PORT=8000     HOME=/app 
+[image-build-push : build-and-push] [36mINFO[0m[0331] WORKDIR /app                                 
+[image-build-push : build-and-push] [36mINFO[0m[0331] cmd: workdir                                 
+[image-build-push : build-and-push] [36mINFO[0m[0331] Changed working directory to /app            
+[image-build-push : build-and-push] [36mINFO[0m[0331] Creating directory /app                      
+[image-build-push : build-and-push] [36mINFO[0m[0331] Taking snapshot of files...                  
+[image-build-push : build-and-push] [36mINFO[0m[0331] COPY requirements.txt requirements.txt       
+[image-build-push : build-and-push] [36mINFO[0m[0331] Taking snapshot of files...                  
+[image-build-push : build-and-push] [36mINFO[0m[0331] RUN pip3 install -r requirements.txt         
+[image-build-push : build-and-push] [36mINFO[0m[0331] Taking snapshot of full filesystem...        
+[image-build-push : build-and-push] [36mINFO[0m[0331] cmd: /bin/sh                                 
+[image-build-push : build-and-push] [36mINFO[0m[0331] args: [-c pip3 install -r requirements.txt]  
+[image-build-push : build-and-push] [36mINFO[0m[0331] Running: [/bin/sh -c pip3 install -r requirements.txt] 
+[image-build-push : build-and-push] Collecting flask==2.1.0
+[image-build-push : build-and-push]   Downloading Flask-2.1.0-py3-none-any.whl (95 kB)
+[image-build-push : build-and-push]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 95.2/95.2 kB 69.3 kB/s eta 0:00:00
+[image-build-push : build-and-push] Collecting pylint==2.13.9
+[image-build-push : build-and-push]   Downloading pylint-2.13.9-py3-none-any.whl (438 kB)
+[image-build-push : build-and-push]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 438.5/438.5 kB 524.3 kB/s eta 0:00:00
+[image-build-push : build-and-push] Collecting pytest==7.1.2
+[image-build-push : build-and-push]   Downloading pytest-7.1.2-py3-none-any.whl (297 kB)
+[image-build-push : build-and-push]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 297.0/297.0 kB 1.7 MB/s eta 0:00:00
+[image-build-push : build-and-push] Collecting pytest-cov==3.0.0
+[image-build-push : build-and-push]   Downloading pytest_cov-3.0.0-py3-none-any.whl (20 kB)
+[image-build-push : build-and-push] Collecting itsdangerous>=2.0
+[image-build-push : build-and-push]   Downloading itsdangerous-2.1.2-py3-none-any.whl (15 kB)
+[image-build-push : build-and-push] Collecting Jinja2>=3.0
+[image-build-push : build-and-push]   Downloading Jinja2-3.1.2-py3-none-any.whl (133 kB)
+[image-build-push : build-and-push]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.1/133.1 kB 4.3 MB/s eta 0:00:00
+[image-build-push : build-and-push] Collecting Werkzeug>=2.0
+[image-build-push : build-and-push]   Downloading Werkzeug-2.2.2-py3-none-any.whl (232 kB)
+[image-build-push : build-and-push]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 232.7/232.7 kB 6.5 MB/s eta 0:00:00
+[image-build-push : build-and-push] Collecting click>=8.0
+[image-build-push : build-and-push]   Downloading click-8.1.3-py3-none-any.whl (96 kB)
+[image-build-push : build-and-push]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 96.6/96.6 kB 16.5 MB/s eta 0:00:00
+[image-build-push : build-and-push] Collecting platformdirs>=2.2.0
+[image-build-push : build-and-push]   Downloading platformdirs-2.5.2-py3-none-any.whl (14 kB)
+[image-build-push : build-and-push] Collecting tomli>=1.1.0
+[image-build-push : build-and-push]   Downloading tomli-2.0.1-py3-none-any.whl (12 kB)
+[image-build-push : build-and-push] Collecting astroid<=2.12.0-dev0,>=2.11.5
+[image-build-push : build-and-push]   Downloading astroid-2.11.7-py3-none-any.whl (251 kB)
+[image-build-push : build-and-push]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 251.2/251.2 kB 1.9 MB/s eta 0:00:00
+[image-build-push : build-and-push] Collecting dill>=0.2
+[image-build-push : build-and-push]   Downloading dill-0.3.6-py3-none-any.whl (110 kB)
+[image-build-push : build-and-push]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 110.5/110.5 kB 5.4 MB/s eta 0:00:00
+[image-build-push : build-and-push] Collecting isort<6,>=4.2.5
+[image-build-push : build-and-push]   Downloading isort-5.10.1-py3-none-any.whl (103 kB)
+[image-build-push : build-and-push]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 103.4/103.4 kB 23.3 MB/s eta 0:00:00
+[image-build-push : build-and-push] Collecting mccabe<0.8,>=0.6
+[image-build-push : build-and-push]   Downloading mccabe-0.7.0-py2.py3-none-any.whl (7.3 kB)
+[image-build-push : build-and-push] Collecting pluggy<2.0,>=0.12
+[image-build-push : build-and-push]   Downloading pluggy-1.0.0-py2.py3-none-any.whl (13 kB)
+[image-build-push : build-and-push] Collecting iniconfig
+[image-build-push : build-and-push]   Downloading iniconfig-1.1.1-py2.py3-none-any.whl (5.0 kB)
+[image-build-push : build-and-push] Collecting packaging
+[image-build-push : build-and-push]   Downloading packaging-21.3-py3-none-any.whl (40 kB)
+[image-build-push : build-and-push]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.8/40.8 kB 2.0 MB/s eta 0:00:00
+[image-build-push : build-and-push] Collecting py>=1.8.2
+[image-build-push : build-and-push]   Downloading py-1.11.0-py2.py3-none-any.whl (98 kB)
+[image-build-push : build-and-push]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 98.7/98.7 kB 4.6 MB/s eta 0:00:00
+[image-build-push : build-and-push] Collecting attrs>=19.2.0
+[image-build-push : build-and-push]   Downloading attrs-22.1.0-py2.py3-none-any.whl (58 kB)
+[image-build-push : build-and-push]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 58.8/58.8 kB 10.6 MB/s eta 0:00:00
+[image-build-push : build-and-push] Collecting coverage[toml]>=5.2.1
+[image-build-push : build-and-push]   Downloading coverage-6.5.0-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (214 kB)
+[image-build-push : build-and-push]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 214.1/214.1 kB 2.0 MB/s eta 0:00:00
+[image-build-push : build-and-push] Collecting lazy-object-proxy>=1.4.0
+[image-build-push : build-and-push]   Downloading lazy-object-proxy-1.8.0.tar.gz (41 kB)
+[image-build-push : build-and-push]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 41.9/41.9 kB 9.9 MB/s eta 0:00:00
+[image-build-push : build-and-push]   Installing build dependencies: started
+[image-build-push : build-and-push]   Installing build dependencies: finished with status 'done'
+[image-build-push : build-and-push]   Getting requirements to build wheel: started
+[image-build-push : build-and-push]   Getting requirements to build wheel: finished with status 'done'
+[image-build-push : build-and-push]   Preparing metadata (pyproject.toml): started
+[image-build-push : build-and-push]   Preparing metadata (pyproject.toml): finished with status 'done'
+[image-build-push : build-and-push] Requirement already satisfied: setuptools>=20.0 in /usr/local/lib/python3.10/site-packages (from astroid<=2.12.0-dev0,>=2.11.5->pylint==2.13.9->-r requirements.txt (line 2)) (63.2.0)
+[image-build-push : build-and-push] Collecting wrapt<2,>=1.11
+[image-build-push : build-and-push]   Downloading wrapt-1.14.1-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (78 kB)
+[image-build-push : build-and-push]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.0/78.0 kB 2.3 MB/s eta 0:00:00
+[image-build-push : build-and-push] Collecting MarkupSafe>=2.0
+[image-build-push : build-and-push]   Downloading MarkupSafe-2.1.1-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl (26 kB)
+[image-build-push : build-and-push] Collecting pyparsing!=3.0.5,>=2.0.2
+[image-build-push : build-and-push]   Using cached pyparsing-3.0.9-py3-none-any.whl (98 kB)
+[image-build-push : build-and-push] Building wheels for collected packages: lazy-object-proxy
+[image-build-push : build-and-push]   Building wheel for lazy-object-proxy (pyproject.toml): started
+[image-build-push : build-and-push]   Building wheel for lazy-object-proxy (pyproject.toml): finished with status 'done'
+[image-build-push : build-and-push]   Created wheel for lazy-object-proxy: filename=lazy_object_proxy-1.8.0-cp310-cp310-linux_aarch64.whl size=11300 sha256=11524802fb21e25717138fdfdac45f9ecb95d2eca7936e5d301da5052ebf43ff
+[image-build-push : build-and-push]   Stored in directory: /app/.cache/pip/wheels/14/14/c4/2ae0f79a7e70a883c6f54368f6ec4b847018dbcf555546dded
+[image-build-push : build-and-push] Successfully built lazy-object-proxy
+[image-build-push : build-and-push] Installing collected packages: iniconfig, wrapt, tomli, pyparsing, py, pluggy, platformdirs, mccabe, MarkupSafe, lazy-object-proxy, itsdangerous, isort, dill, coverage, click, attrs, Werkzeug, packaging, Jinja2, astroid, pytest, pylint, flask, pytest-cov
+[image-build-push : build-and-push] Successfully installed Jinja2-3.1.2 MarkupSafe-2.1.1 Werkzeug-2.2.2 astroid-2.11.7 attrs-22.1.0 click-8.1.3 coverage-6.5.0 dill-0.3.6 flask-2.1.0 iniconfig-1.1.1 isort-5.10.1 itsdangerous-2.1.2 lazy-object-proxy-1.8.0 mccabe-0.7.0 packaging-21.3 platformdirs-2.5.2 pluggy-1.0.0 py-1.11.0 pylint-2.13.9 pyparsing-3.0.9 pytest-7.1.2 pytest-cov-3.0.0 tomli-2.0.1 wrapt-1.14.1
+[image-build-push : build-and-push] WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+[image-build-push : build-and-push] 
+[image-build-push : build-and-push] [notice] A new release of pip available: 22.2.2 -> 22.3
+[image-build-push : build-and-push] [notice] To update, run: pip install --upgrade pip
+[image-build-push : build-and-push] [36mINFO[0m[0381] Taking snapshot of full filesystem...        
+[image-build-push : build-and-push] [36mINFO[0m[0382] COPY . .                                     
+[image-build-push : build-and-push] [36mINFO[0m[0382] Taking snapshot of files...                  
+[image-build-push : build-and-push] [36mINFO[0m[0382] RUN chmod -R g+rwx .                         
+[image-build-push : build-and-push] [36mINFO[0m[0382] cmd: /bin/sh                                 
+[image-build-push : build-and-push] [36mINFO[0m[0382] args: [-c chmod -R g+rwx .]                  
+[image-build-push : build-and-push] [36mINFO[0m[0382] Running: [/bin/sh -c chmod -R g+rwx .]       
+[image-build-push : build-and-push] [36mINFO[0m[0382] Taking snapshot of full filesystem...        
+[image-build-push : build-and-push] [36mINFO[0m[0383] EXPOSE 8000                                  
+[image-build-push : build-and-push] [36mINFO[0m[0383] cmd: EXPOSE                                  
+[image-build-push : build-and-push] [36mINFO[0m[0383] Adding exposed port: 8000/tcp                
+[image-build-push : build-and-push] [36mINFO[0m[0383] CMD ["flask","run"]                          
+[image-build-push : build-and-push] [36mINFO[0m[0383] Pushing image to w98714/min-flask:v1.0       
+[image-build-push : build-and-push] [36mINFO[0m[0446] Pushed image to 1 destinations               
+
+[image-build-push : write-url] w98714/min-flask:v1.0
+
+[helm-chart-publish : package] + cd /packages
+[helm-chart-publish : package] + tee package-output
+[helm-chart-publish : package] + helm package /workspace/source/helm
+[helm-chart-publish : package] Successfully packaged chart and saved it to: /packages/min-flask-0.1.0.tgz
+[helm-chart-publish : package] + helm repo index . --url https://wang-kk714.github.io/min-flask-charts/
+[helm-chart-publish : package] generate new chart package&index
+[helm-chart-publish : package] + '[' -f index.yaml ]
+[helm-chart-publish : package] + echo 'generate new chart package&index'
+[helm-chart-publish : package] + cat index.yaml
+[helm-chart-publish : package] apiVersion: v1
+[helm-chart-publish : package] entries:
+[helm-chart-publish : package]   min-flask:
+[helm-chart-publish : package]   - apiVersion: v2
+[helm-chart-publish : package]     appVersion: 1.16.0
+[helm-chart-publish : package]     created: "2022-10-26T16:52:13.111384592Z"
+[helm-chart-publish : package]     description: A Helm chart for min-flask project
+[helm-chart-publish : package]     digest: 919ebaf278353cc0b4bc7730967e39b7cec170be23409796c16979bb490310df
+[helm-chart-publish : package]     name: min-flask
+[helm-chart-publish : package]     type: application
+[helm-chart-publish : package]     urls:
+[helm-chart-publish : package]     - https://wang-kk714.github.io/min-flask-charts/min-flask-0.1.0.tgz
+[helm-chart-publish : package]     version: 0.1.0
+[helm-chart-publish : package] generated: "2022-10-26T16:52:13.110520676Z"
+
+[helm-chart-publish : push] + CHECKOUT_DIR=/packages//chart
+[helm-chart-publish : push] + git clone git@github.com:Wang-kk714/min-flask-charts.git /packages//chart
+[helm-chart-publish : push] Cloning into '/packages//chart'...
+[helm-chart-publish : push] + git config --global user.email wangkk714@gmail.com
+[helm-chart-publish : push] + cd /packages//chart
+[helm-chart-publish : push] + git checkout gh-pages
+[helm-chart-publish : push] branch 'gh-pages' set up to track 'origin/gh-pages'.
+[helm-chart-publish : push] Switched to a new branch 'gh-pages'
+[helm-chart-publish : push] + ls
+[helm-chart-publish : push] + grep min-flask
+[helm-chart-publish : push] + init_file=min-flask-0.1.0.tgz
+[helm-chart-publish : push] + cat ../package-output
+[helm-chart-publish : push] + awk '-F: /packages/' '{print $2}'
+[helm-chart-publish : push] + package_file=min-flask-0.1.0.tgz
+[helm-chart-publish : push] + '[' min-flask-0.1.0.tgz '=' min-flask-0.1.0.tgz ]
+[helm-chart-publish : push] no update on helm chart
+[helm-chart-publish : push] + echo 'no update on helm chart'
+
