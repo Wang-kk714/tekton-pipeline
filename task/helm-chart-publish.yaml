@@ -72,7 +72,7 @@ spec:
       if [ "${init_file}" = "${package_file}" ]; then
           echo "no update on helm chart"
       else
-          rm -f index.yaml ${init_file}
+          rm -f index.yaml
           cp ../index.yaml ../${package_file} .
           git add .
           git commit . -F ../package-output
