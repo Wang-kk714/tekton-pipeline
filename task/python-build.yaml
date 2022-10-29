@@ -14,11 +14,11 @@ spec:
     image: docker.io/python:$(params.python-version)
     workingDir: $(workspaces.source.path)
     script: | 
-      #!/usr/bin/env sh
+      #!/bin/sh
       set -x #verbose
 
       python -m venv venv
-      source ./venv/bin/active
+      . ./venv/bin/activate
       pip install --upgrade pip
       pip install pytest-cov coverage 
       pip install -r requirements.txt
